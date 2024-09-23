@@ -1,4 +1,4 @@
-package com.example.alura
+package com.example.projetoAlura
 
 import io.flutter.embedding.android.FlutterActivity
 
