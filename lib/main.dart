@@ -1,3 +1,5 @@
+//import 'package:alura/screens/form_screen.dart';
+import 'package:alura/data/task_inherited.dart';
 import 'package:alura/screens/initial_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const InitialScreen(),
+      home: TaskInherited(child: const InitialScreen()),
     );
   }
 }

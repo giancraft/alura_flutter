@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 
 class FormScreen extends StatefulWidget {
   const FormScreen({super.key, required this.taskContext});
-
-    final BuildContext taskContext;
+  final BuildContext taskContext;
 
   @override
   State<FormScreen> createState() => _FormScreenState();
@@ -27,10 +26,10 @@ class _FormScreenState extends State<FormScreen> {
 
   bool difficultyValidator(String? value){
     if(value != null && value.isEmpty){
-      if(int.parse(value) > 5 ||
-          int.parse(value) < 1){
+      if(int.tryParse(value)! > 5 && int.tryParse(value)! < 1){
         return true;
       }
+      return true;
     }
     return false;
   }
@@ -80,7 +79,7 @@ class _FormScreenState extends State<FormScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      validator: (value){
+                      validator: (String? value){
                         if (difficultyValidator(value)){
                           return "Insira uma Dificuldade entre 1 e 5";
                         }
@@ -105,7 +104,7 @@ class _FormScreenState extends State<FormScreen> {
                           
                         });
                       },
-                      validator: (value){
+                      validator: (String? value){
                         if (valueValidator(value)){
                           return "Insira uma URL de imagem";
                         }
@@ -151,13 +150,13 @@ class _FormScreenState extends State<FormScreen> {
                         /*print(nameController.text);
                         print(int.parse(difficultyController.text));
                         print(imageController.text);*/
-                        TaskInherited.of(widget.taskContext).newTask(
-                          nameController.text,
-                          imageController.text,
-                          int.parse(difficultyController.text));
+
+                        TaskInherited.of(widget.taskContext).newTask(nameController.text, imageController.text, int.parse(difficultyController.text));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Criando uma nova Tarefa'),
+                            content: Text(
+                              "Criando nova tarefa"
+                            )
                           ),
                         );
                         Navigator.pop(context);
