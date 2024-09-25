@@ -20,6 +20,7 @@ class _InicialScreenState extends State<InitialScreen> {
           title: const Text('Tarefas'),
         ),
         body: ListView(
+          padding: const EdgeInsets.only(top: 8, bottom: 70),
           children: TaskInherited.of(context).taskList,
         ),
         floatingActionButton: FloatingActionButton(
