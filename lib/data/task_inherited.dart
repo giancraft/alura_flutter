@@ -2,6 +2,7 @@ import 'package:alura/components/task.dart';
 import 'package:flutter/material.dart';
 
 class TaskInherited extends InheritedWidget {
+
   TaskInherited({super.key, required this.child}) : super(child: child);
 
   @override

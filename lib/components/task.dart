@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:alura/components/difficulty.dart';
 
+// ignore: must_be_immutable
 class Task extends StatefulWidget {
   final String nome;
   final String foto;
   final int dificuldade;
+
   Task(this.nome, this.foto, this.dificuldade, {super.key});
 
   int nivel = 0;
